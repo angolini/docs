@@ -55,6 +55,13 @@ OE/Yocto Project, the Linux microPlatform™ and Docker®.
    user-guide/*/*
 
 .. toctree::
+   :maxdepth: 1
+   :caption: Porting Guide
+   :name: sec-porting-guide
+
+   porting-guide/pg.rst
+
+.. toctree::
    :maxdepth: 2
    :caption: Glossary
    :name: sec-glossary
