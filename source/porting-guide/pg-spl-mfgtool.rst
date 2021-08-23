@@ -36,19 +36,19 @@ following configuration:
 
 .. prompt:: text
 
-         ├── recipes-bsp
-         │ └── u-boot
-         │ ├── u-boot-fio-mfgtool
-         │ │ └── <board>
-         │ │ └── lmp.cfg
-         │ ├── u-boot-fio-mfgtool_%.bbappend
-         ├── recipes-security
-         │ └── optee
-         │ └── optee-os-fio-mfgtool_3.10.0.bbappend
-         └── recipes-support
-         └── mfgtool-files
-         ├── mfgtool-files
-         │ └── <board>
-         │ ├── bootloader.uuu.in
-         │ └── full_image.uuu.in
-         └── mfgtool-files_%.bbappend
+	├── recipes-bsp
+	│   └── u-boot
+	│       ├── u-boot-fio-mfgtool
+	│       │   └── <board>
+	│       │       └── lmp.cfg
+	│       └── u-boot-fio-mfgtool_%.bbappend
+	├── recipes-security
+	│   └── optee
+	│       └── optee-os-fio-mfgtool_3.10.0.bbappend
+	└── recipes-support
+	    └── mfgtool-files
+		├── mfgtool-files
+		│   └── <board>
+		│       ├── bootloader.uuu.in
+		│       └── full_image.uuu.in
+		└── mfgtool-files_%.bbappend

@@ -16,10 +16,9 @@ keys.
 
 The U-Boot should support SPL so meta-lmp handles the SPL and FIT image
 generation and signing of the FIT image components. If SPL is not yet
-supported, the user can enable it following U-Boot documentation and
-guidelines
-(https://github.com/ARM-software/u-boot/blob/master/doc/README.SPL) and
-append it to their U-Boot porting or contact Foundries.io support for
+supported, the user can enable it following `U-Boot documentation and
+guidelines <https://github.com/ARM-software/u-boot/blob/master/doc/README.SPL>`_
+and append it to their U-Boot porting or contact Foundries.io support for
 guidance.
 
 Next, review the board-specific U-Boot patches and align them with the
@@ -46,10 +45,10 @@ For example:
     recipes-bsp/u-boot/
     ├── u-boot-fio
     │ └── <board>
-    │ ├── 0001-add-<board>-support.patch
-    │ ├── 0002-add-feature.patch
-    │ ├── 0003-fix-bug.patch
-    │ └── 0004-align-with-u-boot-fio.patch
+    │     ├── 0001-add-<board>-support.patch
+    │     ├── 0002-add-feature.patch
+    │     ├── 0003-fix-bug.patch
+    │     └── 0004-align-with-u-boot-fio.patch
     └── u-boot-fio_%.bbappend
 
 If applicable, the user might need to do the same procedure for TF-A
@@ -62,5 +61,5 @@ with LmP can be found in :ref:`ref-sec-tfa-optee`.
     If the target is based on imx8m*, the user might also want to pay
     attention to the provided firmwares, like DDR and HDMI (when
     applicable), and the vendor ``imx-mkimage`` implementation. The vendor
-    changes applied to u-boot-fio should match with the related projects
+    changes applied to ``u-boot-fio`` should match with the related projects
     (``imx-atf``, ``imx-mkimage``) otherwise the ``u-boot-fio`` porting will not work.

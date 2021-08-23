@@ -3,7 +3,7 @@
 Checklist
 =========
 
-The checklist goals is to make sure everything needed is in place
+The checklist goal is to make sure everything needed is in place:
 
 1.  Find the similar reference board (:ref:`ref-pg-reference-board`)
 2.  Change distro from ``lmp`` to ``lmp-base`` (:ref:`ref-pg-lmp-base`)

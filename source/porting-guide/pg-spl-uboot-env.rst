@@ -4,11 +4,11 @@ U-Boot environment and boot script
 ==================================
 
 The last step to configure U-Boot in LmP is to provide the boot
-environment (for lmp-base) and the boot command. The user can start by
-using the reference board support and adjust the files according to the
+environment (for ``lmp-base``) and the boot command. The user can start by
+using the reference board support and adjusting the files according to the
 target board.
 
-For the lmp-base distro, provide the boot environment input file
+For the ``lmp-base`` distro, provide the boot environment input file
 (``uEnv.txt.in``), which sets the needed variables for booting:
 
 ``u-boot-base-scr/imx8mmevk/uEnv.txt.in``:
@@ -17,13 +17,11 @@ For the lmp-base distro, provide the boot environment input file
 
     devnum=2
     devtype=mmc
-    bootcmd_args=setenv bootargs console=tty1 console=${console}
-    root=/dev/mmcblk2p2 rootfstype=ext4 rootwait rw
+    bootcmd_args=setenv bootargs console=tty1 console=${console} root=/dev/mmcblk2p2 rootfstype=ext4 rootwait rw
     bootcmd_dtb=fatload ${devtype} ${devnum}:1 ${fdt_addr} ${fdt_file}
     bootcmd_load_k=fatload ${devtype} ${devnum}:1 ${loadaddr} ${image}
     bootcmd_run=booti ${loadaddr} - ${fdt_addr}
-    bootcmd=run bootcmd_args; run bootcmd_dtb; run bootcmd_load_k; run
-    bootcmd_run
+    bootcmd=run bootcmd_args; run bootcmd_dtb; run bootcmd_load_k; run bootcmd_run
 
 The user needs to define the ``devnum`` and ``bootcmd_args`` root parameters to
 meet the eMMC index on their board. Other board specific variables can
@@ -47,8 +45,8 @@ For the ``lmp-base`` distro, these files live in ``u-boot-base-scr``:
     recipes-bsp/u-boot/
     ├── u-boot-base-scr
     │ └── <board>
-    │ ├── boot.cmd
-    │ └── uEnv.txt.in
+    │     ├── boot.cmd
+    │     └── uEnv.txt.in
     └── u-boot-base-scr.bbappend
 
 For the ``lmp`` distro, the only file that needs to be provided is ``boot.cmd``
@@ -60,15 +58,18 @@ command:
 .. prompt:: text
 
     echo "Using freescale_${fdt_file}"
+
     # Default boot type and device
     setenv bootlimit 3
     setenv devtype mmc
     setenv devnum 2
     setenv bootpart 1
     setenv rootpart 2
+
     # Boot image files
     setenv fdt_file_final freescale_${fdt_file}
     setenv fit_addr ${initrd_addr}
+
     # Boot firmware updates
     setenv bootloader 42
     setenv bootloader2 300
@@ -79,6 +80,7 @@ command:
     setenv bootloader2_image "u-boot.itb"
     setenv bootloader2_s_image ${bootloader2_image}
     setenv uboot_hwpart 1
+
     @@INCLUDE_COMMON@@
 
 The user needs to define ``devnum`` as expected by the board and make sure
@@ -98,8 +100,8 @@ The boot.cmd for the ``lmp`` distro lives in:
 
     recipes-bsp/u-boot/
     ├── u-boot-ostree-scr-fit
-    │ └── <board>
-    │ └── boot.cmd
+    │   └── <board>
+    │       └── boot.cmd
     └── u-boot-ostree-scr-fit.bbappend
 
 After providing these files, LmP has all the needed configuration to

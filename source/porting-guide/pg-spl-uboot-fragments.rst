@@ -14,9 +14,7 @@ command.
 
 To create this file use the reference board support in LmP and modify
 the configuration files as needed. The list of supported boards and
-their ``.cfg`` files can be found at:
-
-https://github.com/foundriesio/meta-lmp/tree/master/meta-lmp-bsp/recipes-bsp/u-boot/u-boot-fio
+their ``.cfg`` files can be found `here <https://github.com/foundriesio/meta-lmp/tree/master/meta-lmp-bsp/recipes-bsp/u-boot/u-boot-fio>`_.
 
 For example, see ``imx8mmevk/lmp-base.cfg``:
 
@@ -57,7 +55,7 @@ pay attention to board-specific configuration, in this case:
 
   CONFIG_ENV_FAT_DEVICE_AND_PART="2:1"
 
-Where “2” represents the uSDHC index for the eMMC device in imx8mmevk.
+Where ``2`` represents the uSDHC index for the eMMC device in imx8mmevk.
 The user should align this with the expected for their board.
 
 .. note::

@@ -5,8 +5,7 @@ Kernel and Device Tree
 
 The LmP goal is to be as close as possible to the mainline kernel when
 possible, or to use the community kernel support depending on the board
-vendor. Supported kernel trees can be found here
-(https://github.com/foundriesio/meta-lmp/tree/master/meta-lmp-bsp/recipes-kernel/linux).
+vendor. Supported kernel trees can be found `here <https://github.com/foundriesio/meta-lmp/tree/master/meta-lmp-bsp/recipes-kernel/linux>`_.
 
 Unlike U-Boot, not all patches need to be appended to the kernel recipe.
 The user needs to append only patches to include features or drivers
@@ -17,14 +16,13 @@ meta-subscriber-overrides so the build generates the output ``.dtb`` file.
 .. prompt:: text
 
     recipes-bsp/device-tree/
-
-        ├── lmp-device-tree
-        │ └── <board>.dts
-        └── lmp-device-tree.bbappend
+    ├── lmp-device-tree
+    │   └── <board>.dts
+    └── lmp-device-tree.bbappend
 
 The strategy of using the dts file separated from the Linux Kernel
-source code is used to avoid forking the kernel for including any new
-dtb, so the ``lmp-device-tree`` which is based on the Yocto Project
+source code is helpful to avoid forking the kernel for including any new
+dtb, so LmP relies on ``lmp-device-tree`` which is based on the Yocto Project
 device-tree class.
 
 For the kernel configuration, LmP makes use of the kernel fragments,
@@ -41,7 +39,7 @@ the :ref:`ref-linux-fragments`.
 
 In short, there are several well known kernel features defined on some
 fragment files (such as the bluetooth feature) along with other
-configurations. The bsp directory is where the fragments related with
+configurations. The ``bsp`` directory is where the fragments related with
 BSP are stored.
 
 The goal is to create a bbappend to include the fragments which define
@@ -50,21 +48,21 @@ the target machine, the set of files should look like the following:
 .. prompt:: text
 
     ├── linux-<name>
-    │ ├── patch-file.patch
-    │ ├── another-patch-file.patch
-    │ └── kernel-meta
-    │ └── bsp
-    │ └── <sub-group>
-    │ ├── <machine>.cfg
-    │ ├── <machine>.scc
-    │ └── <machine>-standard.scc
+    │   ├── patch-file.patch
+    │   ├── another-patch-file.patch
+    │   └── kernel-meta
+    │       └── bsp
+    │           └── <sub-group>
+    │               ├── <machine>.cfg
+    │               ├── <machine>.scc
+    │               └── <machine>-standard.scc
     └── linux-<name>_%.bbappend
 
-Where <name> is the kernel name for the particular kernel recipe being
+Where ``<name>`` is the kernel name for the particular kernel recipe being
 used. The patch files are those possible patches applied by the bbappend
-file on top of the kernel source code and <machine> is the machine name.
-The <sub-group> is a BSP subgroup, following the lmp-kernel-cache
-directory organization. For example, imx or raspberrypi, depending on
+file on top of the kernel source code and ``<machine>`` is the machine name.
+The ``<sub-group>`` is a BSP subgroup, following the lmp-kernel-cache
+directory organization. For example, ``imx`` or ``raspberrypi``, depending on
 the target machine.
 
 It is common that the BSP fragment is defined in a
